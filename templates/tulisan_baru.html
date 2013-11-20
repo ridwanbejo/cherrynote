@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="twelve columns">
+    <div class="panel" style="">
+        <h3>Tulisan Baru</h3>
+        <hr />
+        <form method="post" action="/proses_tulisan_baru">
+            <label>Judul :</label>
+            <input type="text" name='judul' placeholder="isi judulnya disini ..." />
+            <br />
+            <label>Tag (contoh : linux, programming, python, cherrypy) : </label>
+            <input type="text" name='tag' placeholder="isi tagnya disini ..." />
+            <br />
+            <label>Isi Catatan :</label>
+            <textarea id="elm1" name="elm1" rows="15" cols="80" style="width: 100%">
+                Tulis apa yang sedang Anda pikirkan :D
+            </textarea>
+
+            <br />
+            <input type="submit" value="Submit" class="small button"/>
+            <input type="reset"  value="Reset" class="small button"/>
+        </form>
+    </div>
+    
+</div>
+
+
+{% endblock %}

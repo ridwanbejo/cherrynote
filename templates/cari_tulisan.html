@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="twelve columns">
+    <div class="panel" style="">
+        <h4>Cari catatan Anda disini :</h4>
+        <hr />
+        <form method="get" action="/">
+            <input type="text" name='tag' placeholder="masukkan nama catatan yang ingin dicari ..." />
+            <br />
+            <br />
+            <input type="submit" value="Cari" class="small button"/>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="twelve columns">
+    <div class="panel" style="">
+        <h3>Mengubah Tulisan</h3>
+        <hr />
+        <form method="post" action="/proses_ubah_tulisan">
+            <label>Judul :</label>
+            <input type="text" name='judul' placeholder="isi judulnya disini ..." value="{{post.judul}}"/>
+            <br />
+            <label>Tag (contoh : linux, programming, python, cherrypy) : </label>
+            <input type="text" name='tag' placeholder="isi tagnya disini ..." value="{{post.tag}}"/>
+            <br />
+            <label>Isi Catatan :</label>
+            <textarea id="elm1" name="elm1" rows="15" cols="80" style="width: 100%">
+                {{ post.isi }}
+            </textarea>
+            <input type="hidden" name="id_note" value="{{ post.id_note }}" />
+            
+            <br />
+            <br />
+            <input type="submit" value="Submit" class="small button"/>
+            <input type="reset"  value="Reset" class="small button"/>
+        </form>
+    </div>
+    
+</div>
+
+
+{% endblock %}

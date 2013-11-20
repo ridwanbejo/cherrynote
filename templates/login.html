@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="four columns centered">
+    <div class="panel" style="">
+        <h4>Silahkan login</h4>
+        <hr />
+        {% if error_login_msg %}
+        <small class="error">{{error_login_msg}}</small>
+        {% endif %}
+        <form method="post" action="/user/login">
+            <label>Username : </label>
+            <br />
+            <input type="text" name='username'/>
+            <label>Password : </label>
+            <br />
+            <input type="password" name='password' />
+            <br />
+            <br />
+            <input type="submit" value="Login" class="small button"/>
+        </form>
+    </div>
+    
+</div>
+
+
+{% endblock %}

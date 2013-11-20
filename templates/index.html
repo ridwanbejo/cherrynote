@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="twelve columns">
+    <ul class="pagination">
+      <li class="arrow unavailable"><a href="">&laquo;</a></li>
+      <li class="current"><a href="">1</a></li>
+      <li><a href="">2</a></li>
+      <li><a href="">3</a></li>
+      <li><a href="">4</a></li>
+      <li class="unavailable"><a href="">&hellip;</a></li>
+      <li><a href="">12</a></li>
+      <li><a href="">13</a></li>
+      <li class="arrow"><a href="">&raquo;</a></li>
+    </ul>
+    
+    {% for post in posts %}
+    <div class="panel" style="">
+        <h4>{{ post['judul'] }}</h4>
+        <h6> {{post['tag']}}</h6>
+        <p>tanggal dibuat : {{ post['tanggal_dibuat'] }} | tanggal_diubah : {{ post['tanggal_diubah'] }}</p>
+        <p>{{ post['isi'] }}</p>
+        <hr />
+        <ul class="inline-list">
+          <li><a href='/lihat_tulisan/{{post.id_note}}'><img src="/static/icon/search.png" /></a></li>
+          <li><a href='/ubah_tulisan/{{post.id_note}}'><img src="/static/icon/edit.png" /></a></li>
+          <li><a href='/hapus_tulisan/{{post.id_note}}'><img src="/static/icon/trash.png" /></a></li>
+        </ul>
+    </div>
+    {% endfor %}
+    
+    <ul class="pagination">
+      <li class="arrow unavailable"><a href="">&laquo;</a></li>
+      <li class="current"><a href="">1</a></li>
+      <li><a href="">2</a></li>
+      <li><a href="">3</a></li>
+      <li><a href="">4</a></li>
+      <li class="unavailable"><a href="">&hellip;</a></li>
+      <li><a href="">12</a></li>
+      <li><a href="">13</a></li>
+      <li class="arrow"><a href="">&raquo;</a></li>
+    </ul>
+</div>
+
+{% endblock %}

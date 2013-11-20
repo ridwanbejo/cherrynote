@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>Cherry Note</title>
+        <!-- Included JS Files (Compressed) -->
+        
+        <script src="/static/foundation/javascripts/jquery.js"></script>
+        <script src="/static/foundation/javascripts/foundation.min.js"></script>
+          
+        <!-- Initialize JS Plugins -->
+        <script src="/static/foundation/javascripts/app.js"></script>
+        
+        <script src="/static/foundation/javascripts/modernizr.foundation.js"></script>
+        <script type="text/javascript" src="/static/tiny_mce/tiny_mce.js"></script>
+        <script type="text/javascript">
+            tinyMCE.init({
+                mode : "textareas",
+                theme : "advanced",
+                theme_advanced_toolbar_location : "top",
+                theme_advanced_toolbar_align : "left",
+            });
+        </script>
+        <link rel="stylesheet" href="/static/foundation/stylesheets/foundation.min.css">
+        <link rel="stylesheet" href="/static/foundation/stylesheets/app.css">
+        
+    </head>
+    <body>
+        <div class="row" id="header">
+            <div class="twelve columns">
+                <h2>Cherry Note</h2>
+                <p>Sebuah Catatan Online berbasis <b>Python</b></p>
+                <hr />
+                {% if data_user %}
+                <nav style="" class="top-bar hide-for-small">
+                    <ul class="title-area">
+                        <!-- Title Area -->
+                        <li class="name">
+                            <h1><a href="/">Beranda</a></h1>
+                        </li>
+                    </ul>
+                    <section class="top-bar-section">
+                    <!-- Right Nav Section -->
+                    <ul class="left">
+                      <li class="divider"></li>
+                      <li class="has-dropdown"><a href="#">Catatan</a>
+                        <ul class="dropdown">
+                            <li><a href="/tulisan_baru">Buat Catatan Baru</a></li>
+                            <li><a href="/ekspor">Ekspor Catatan</a></li>
+                        </ul>
+                      </li>
+                      <li class="divider"></li>
+                      <li class=""><a href="/cari">Cari</a></li>
+                      <li class="divider"></li>
+                      
+                    </ul>
+                    <ul class="right">
+                      <li class="divider"></li>
+                      <li class=""><a href="/user/logout">Logout</a></li>
+                    </ul>
+                    </section>
+                </nav>
+                {% endif %}
+            </div>
+        </div>
+    
+        <div class="row" id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="row" id="footer">
+            <hr />
+            <section class="eight columns">
+                    <h6>Powered by :</h6>
+                    <div class="four columns">
+                        <img src="/static/images/cherrypy.png" />
+                        <p>
+                            A Minimalist Python Web Framework
+                        </p>
+                    </div>
+                    <div class="four columns">
+                        <img src="/static/images/ubuntu.png" />
+                        <p>
+                            Linux for Human Being
+                        </p>
+                    </div>
+                    
+                    <div class="four columns">
+                        <img src="/static/images/zurb.png" />
+                        <p>
+                            Start Here Build Everywhere
+                        </p>
+                    </div>
+                
+            </section>
+            <section class="four columns panel">
+                <h6>Supported by :</h6>
+                <img src="/static/images/poss-upi.png" />
+                <p> Projek ini dimulai 30 November 2013. Didukung oleh Pemberdayaan Open Source Software - Universitas Pendidikan Indonesia (POSS - UPI), 2013 </p>
+            </section>
+        </div>
+    </body>
+</html>
