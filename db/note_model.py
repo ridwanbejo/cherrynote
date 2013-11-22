@@ -1,6 +1,8 @@
 from database import *
+import datetime
 
 class NoteModel:
+    
     def __init__(self):
         self.db = db
         self.cursor = cursor
@@ -31,7 +33,8 @@ class NoteModel:
             print "Error : tidak bisa mengambil data"
 
     def insert_post(self, judul, tag, isi):
-        sql = "insert into note (id_user, judul, tag, isi, tanggal_dibuat, tanggal_diperbaharui) values (%d, '%s', '%s', '%s', '%s', '%s')" % (1, judul, tag, isi, '2013-10-15', '2013-10-15') 
+        temp_tanggal = datetime.datetime.now()
+        sql = "insert into note (id_user, judul, tag, isi, tanggal_dibuat, tanggal_diperbaharui) values (%d, '%s', '%s', '%s', '%s', '%s')" % (1, judul, tag, isi, temp_tanggal.strftime('%Y-%m-%d %H-%M-%S'), temp_tanggal.strftime('%Y-%m-%d %H-%M-%S')) 
         try:
             self.cursor.execute(sql)
             db.commit()
@@ -41,7 +44,8 @@ class NoteModel:
             print "Error : pengisian data gagal.."
             
     def update_post(self, judul, tag, isi, id_note):
-        sql = "update note set judul='%s', tag='%s', isi='%s' where id_note=%d" % (judul, tag, isi, int(id_note)) 
+        temp_tanggal = datetime.datetime.now()
+        sql = "update note set judul='%s', tag='%s', isi='%s', tanggal_diperbaharui='%s' where id_note=%d" % (judul, tag, isi, temp_tanggal.strftime('%Y-%m-%d %H-%M-%S'), int(id_note)) 
         try:
             self.cursor.execute(sql)
             db.commit()
