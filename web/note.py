@@ -100,3 +100,6 @@ class Note:
             return tmpl.render(data_user=cherrypy.session.get('data_user'))
         else:
             raise cherrypy.HTTPRedirect('/')
+    
+    def test(self):
+        pass 
